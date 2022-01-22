@@ -2,32 +2,38 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
 public class LoginPage extends BasePage {
-    public LoginPage(WebDriver driver) {       super(driver);    }
+    public LoginPage(WebDriver driver) {super(driver);}
 
     //Elements
-    By userNameTextField = By.cssSelector("[id='user-name']");
-    By passwordTextField = By.cssSelector("[id='password']");
-    By loginButton = By.cssSelector("[id='login-button']");
+    @FindBy (css = "[id='user-name']")
+    WebElement userNameTextField;
+    @FindBy (css = "[id='password']")
+    WebElement passwordTextField;
+    @FindBy (css = "[id='login-button']")
+    WebElement loginButton;
+
 
     //Methods
 
     public void fillLogin(String text){
-        fillText(driver.findElement(userNameTextField), text);
+        fillText(userNameTextField, text);
     }
 
     public void fillPassword(String text){
-        fillText(driver.findElement(passwordTextField), text);
+        fillText(passwordTextField, text);
     }
 
     public void clickLogin(){
-        clickElement(driver.findElement(loginButton));
+        clickElement(loginButton);
     }
 
     public void fillForm(String login, String password) {
-        fillText(driver.findElement(userNameTextField), login);
+        fillText(userNameTextField, login);
         fillPassword(password);
         clickLogin();
     }

@@ -1,18 +1,19 @@
 package tests;
 
+//token
+// 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
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import pageObjects.Urls;
 
 public class BaseTest {
 
     WebDriver driver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup(){
 
         WebDriverManager.chromedriver().setup();
@@ -22,7 +23,7 @@ public class BaseTest {
 
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown(){
         driver.quit();
     }
