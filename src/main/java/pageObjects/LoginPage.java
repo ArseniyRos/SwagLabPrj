@@ -16,10 +16,12 @@ public class LoginPage extends BasePage {
     WebElement passwordTextField;
     @FindBy (css = "[id='login-button']")
     WebElement loginButton;
+    @FindBy (css = "[data-test='error']")
+    WebElement errorMessage;
+
 
 
     //Methods
-
     public void fillLogin(String text){
         fillText(userNameTextField, text);
     }
@@ -36,6 +38,10 @@ public class LoginPage extends BasePage {
         fillText(userNameTextField, login);
         fillPassword(password);
         clickLogin();
+    }
+
+    public String getErrorMessage(){
+        return getElementText(errorMessage);
     }
 
 

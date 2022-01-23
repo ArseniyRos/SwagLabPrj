@@ -1,8 +1,5 @@
 package tests;
 
-//token
-// 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
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,10 +10,13 @@ public abstract class BaseTest {
 
     protected WebDriver driver;
 
+    @BeforeClass
+    public void setupChromeDriver(){
+        WebDriverManager.chromedriver().setup();
+    }
+
     @BeforeMethod
     public void setup(){
-
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(Urls.BASE_URL);
