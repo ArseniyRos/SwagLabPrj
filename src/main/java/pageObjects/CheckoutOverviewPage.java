@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CheckoutOverviewPage extends BasePage{
+public class CheckoutOverviewPage extends CommonElements{
     public CheckoutOverviewPage(WebDriver driver) {super(driver);}
 
     //Elements

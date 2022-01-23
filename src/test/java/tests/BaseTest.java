@@ -9,9 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import pageObjects.Urls;
 
-public class BaseTest {
+public abstract class BaseTest {
 
-    WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeMethod
     public void setup(){
@@ -27,5 +27,6 @@ public class BaseTest {
     public void tearDown(){
         driver.quit();
     }
+
 
 }

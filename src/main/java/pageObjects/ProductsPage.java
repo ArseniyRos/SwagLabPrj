@@ -8,15 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
-public class ProductsPage extends BasePage{
+public class ProductsPage extends CommonElements{
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
     //Elements
-
-    @FindBy(css = "[class='header_secondary_container'] [class='title']")
-    WebElement pageTitle;
 
     @FindBy(css = "[class='inventory_item_name']")
     private List<WebElement> listOfProductTitle;
@@ -33,38 +30,10 @@ public class ProductsPage extends BasePage{
     @FindBy(css = "[class='inventory_item_desc']")
     private List<WebElement> listOfProductDescription;
 
-    @FindBy(css = "[class='social_twitter']")
-    WebElement twitterButton;
-
-    @FindBy(css = "[class='social_facebook']")
-    WebElement facebookButton;
-
-    @FindBy(css = "[class='social_linkedin']")
-    WebElement linkedinButton;
-
-    @FindBy(css = "[class='shopping_cart_link']")
-    WebElement shoppingCartButton;
-
-    @FindBy(css = "[class='shopping_cart_badge']")
-    WebElement cartItemsCounter;
-
     @FindBy(css = "[class='product_sort_container']")
     WebElement productSortDrp;
 
-    @FindBy(css = "[id='react-burger-menu-btn']")
-    WebElement sandwichButton;
 
-    @FindBy(css = "[id='inventory_sidebar_link']")
-    WebElement allItemsSidebarOption;
-
-    @FindBy(css = "[id='about_sidebar_link']")
-    WebElement aboutSidebarOption;
-
-    @FindBy(css = "[id='logout_sidebar_link']")
-    WebElement logoutSidebarOption;
-
-    @FindBy(css = "[id='reset_sidebar_link']")
-    WebElement resetSidebarOption;
 
     //Methods
 
@@ -100,50 +69,6 @@ public class ProductsPage extends BasePage{
         }
     }
 
-    public void openCart() {
-        clickElement(shoppingCartButton);
-    }
-
-    public void clickLinkedin() {
-        clickElement(linkedinButton);
-    }
-
-    public void clickFacebook() {
-        clickElement(facebookButton);
-    }
-
-    public void clickTwitter() {
-        clickElement(twitterButton);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -157,12 +82,6 @@ public class ProductsPage extends BasePage{
     }*/
     //сначала разбил проверку на 2 метода, но потом подумал, что можно и объединить
 
-    public boolean redirectIsCorrect(String url, String correctTitle){
-        if (textIsCorrect(pageTitle, correctTitle ) && urlIsCorrect(url)) {
-            return true;
-        }
-        else return false;
-    }
 
 
 

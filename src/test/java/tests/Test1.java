@@ -37,7 +37,6 @@ public class Test1 extends BaseTest{
         ProductsPage productsPage = new ProductsPage(driver);
         Assert.assertTrue(productsPage.redirectIsCorrect("https://www.saucedemo.com/inventory.html", "PRODUCTS"));
         productsPage.sleep(2000);
-        productsPage.tearDown();
 
     }
     }
