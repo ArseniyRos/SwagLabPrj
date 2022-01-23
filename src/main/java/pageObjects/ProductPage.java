@@ -25,6 +25,15 @@ public class ProductPage extends BasePage{
     @FindBy(css = "[id='back-to-products']")
     WebElement backButton;
 
+    @FindBy(css = "[class='shopping_cart_badge']")
+    WebElement cartItemsCounter;
+
+    @FindBy(css = "[class='shopping_cart_link']")
+    WebElement shoppingCartButton;
+
+
+
+
     //Methods
 
     public void clickBackToProducts() {
@@ -33,6 +42,10 @@ public class ProductPage extends BasePage{
 
     public void clickAddToCart() {
         clickElement(addToCartButton);
+    }
+
+    public void openCart() {
+        clickElement(shoppingCartButton);
     }
 
 
