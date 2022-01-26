@@ -34,6 +34,42 @@ public class CheckoutOverviewPage extends CommonElements{
     @FindBy(css = "[class='inventory_item_price']")
     private List<WebElement> listOfProductPrices;
 
+    //Getters
+
+
+    @Override
+    public WebElement getPageTitle() {
+        return pageTitle;
+    }
+
+    public WebElement getCancelButton() {
+        return cancelButton;
+    }
+
+    public WebElement getFinishButton() {
+        return finishButton;
+    }
+
+    public WebElement getItemsPrice() {
+        return itemsPrice;
+    }
+
+    public WebElement getTax() {
+        return tax;
+    }
+
+    public WebElement getTotalPrice() {
+        return totalPrice;
+    }
+
+    public List<WebElement> getListOfProductTitles() {
+        return listOfProductTitles;
+    }
+
+    public List<WebElement> getListOfProductPrices() {
+        return listOfProductPrices;
+    }
+
     //Methods
     public void clickFinish(){
         clickElement(finishButton);
@@ -42,6 +78,22 @@ public class CheckoutOverviewPage extends CommonElements{
     public void clickCancel(){
         clickElement(cancelButton);
     }
+    //checking:
+    // 1 sum of items from CartPage with number on CheckoutPage
+    // 2 sum price+tax+finalPrice
+    // 3 tax !> 10%
+    public boolean pricesComparison(double firstSum){
+        double currentItemsSum = Double.parseDouble(getElementText(itemsPrice).replace("Item total: $",""));
+        double taxPrice = Double.parseDouble(getElementText(tax).replace("Tax: $",""));
+        double sumPlusTax = Double.parseDouble(getElementText(totalPrice).replace("Total: $",""));
+
+        if (firstSum==currentItemsSum && firstSum*1.1>sumPlusTax && firstSum+taxPrice==sumPlusTax){
+            return true;
+        }
+        else return false;
+
+    }
+
 
     /*public void checkSum(){
         for (WebElement itemPrice:listOfProductPrices) {

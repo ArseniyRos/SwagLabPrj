@@ -41,6 +41,52 @@ public class CommonElements extends BasePage{
     @FindBy(css = "[id='reset_sidebar_link']")
     WebElement resetSidebarOption;
 
+    //getters
+
+
+    public WebElement getPageTitle() {
+        return pageTitle;
+    }
+
+    public WebElement getTwitterButton() {
+        return twitterButton;
+    }
+
+    public WebElement getFacebookButton() {
+        return facebookButton;
+    }
+
+    public WebElement getLinkedinButton() {
+        return linkedinButton;
+    }
+
+    public WebElement getShoppingCartButton() {
+        return shoppingCartButton;
+    }
+
+    public WebElement getCartItemsCounter() {
+        return cartItemsCounter;
+    }
+
+    public WebElement getSandwichButton() {
+        return sandwichButton;
+    }
+
+    public WebElement getAllItemsSidebarOption() {
+        return allItemsSidebarOption;
+    }
+
+    public WebElement getAboutSidebarOption() {
+        return aboutSidebarOption;
+    }
+
+    public WebElement getLogoutSidebarOption() {
+        return logoutSidebarOption;
+    }
+
+    public WebElement getResetSidebarOption() {
+        return resetSidebarOption;
+    }
 
     //Methods
     public void openCart() {
@@ -65,8 +111,6 @@ public class CommonElements extends BasePage{
         }
         else return false;
     }
-
-
 
 
 
