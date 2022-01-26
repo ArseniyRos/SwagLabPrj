@@ -33,6 +33,21 @@ public class ProductsPage extends CommonElements{
     @FindBy(css = "[class='product_sort_container']")
     WebElement productSortDrp;
 
+    @FindBy(css = "[value='az']")
+    WebElement sortAZ;
+
+    @FindBy(css = "[value='za']")
+    WebElement sortZA;
+
+    @FindBy(css = "[value='lohi']")
+    WebElement sortLoHi;
+
+    @FindBy(css = "[value='hilo']")
+    WebElement sortHiLo;
+
+
+
+
 
 
     //Methods
@@ -42,8 +57,8 @@ public class ProductsPage extends CommonElements{
         for (WebElement productTitle : listOfProductTitle) {
             if (productTitle.getText().equalsIgnoreCase(titleOfProductForChoose)) {
                 productTitle.click();
+                break;
             }
-            break;
         }
     }
     //will work if there is no added to cart products right now, dunno how to fix for now
@@ -67,6 +82,30 @@ public class ProductsPage extends CommonElements{
                 break;
             }
         }
+    }
+
+    public void applyFilter_1AZ_2ZA_A3LoHi_4HiLo(int filterType) {
+        switch (filterType){
+            case 1:
+                clickElement(productSortDrp);
+                clickElement(sortAZ);
+                break;
+            case 2:
+                clickElement(productSortDrp);
+                clickElement(sortZA);
+                break;
+            case 3:
+                clickElement(productSortDrp);
+                clickElement(sortLoHi);
+                break;
+            case 4:
+                clickElement(productSortDrp);
+                clickElement(sortHiLo);
+                break;
+
+        }
+
+
     }
 
 

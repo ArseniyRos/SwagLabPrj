@@ -14,6 +14,25 @@ public class CheckoutCompletePage extends CommonElements{
     @FindBy(css = "[id='back-to-products']")
     WebElement backHomeButton;
 
+    @FindBy(css = "[class='complete-header']")
+    WebElement thanksForYourOrderTitle;
+
+    //Getters
+
+
+    @Override
+    public WebElement getPageTitle() {
+        return pageTitle;
+    }
+
+    public WebElement getBackHomeButton() {
+        return backHomeButton;
+    }
+
+    public WebElement getThanksForYourOrderTitle() {
+        return thanksForYourOrderTitle;
+    }
+
     //Methods
     public void clickBackHome(){
         clickElement(backHomeButton);

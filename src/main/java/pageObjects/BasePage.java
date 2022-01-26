@@ -1,10 +1,13 @@
 package pageObjects;
 
+import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public abstract class BasePage {
 
@@ -81,6 +84,36 @@ public abstract class BasePage {
 
     }
 
+    public boolean checkRedirectViaDisplayingElementAndHisTitle(WebElement element, String titleForCheck){
+        if (elementIsDisplayed(element) && textIsCorrect(element, titleForCheck) ){
+            return true;
+        } else return false;
+    }
+//возвращает индекс элемента в листе по его имени
+    public int findElementInListOfThemOnAPage(List<WebElement> listOfElements , String titleForCheck){
+        int numberOfElements = listOfElements.size();
+        int j;
+        for (int i = 0; i<numberOfElements; i++){
+            if (elementIsDisplayed(listOfElements.get(i)) && textIsCorrect(listOfElements.get(i), titleForCheck)){
+                System.out.println("index in list = "+ i);
+                return i;
+            }
+        }
+        return -5;
+    }
+/* public double priceOfProducts(){
+        String priceText;
+        String priceTextWithout$;
+        Double priceInDouble;
+        Double finalSum = 0.0;
+        int numberOfElements = listOfProductPrices.size();
+        for (int i = 0; i < numberOfElements; i++){
+            priceInDouble = Double.parseDouble(getElementText(listOfProductPrices.get(i)).replace("$",""));
+            finalSum = finalSum+priceInDouble;
+        }
+        System.out.println("final sum "+ finalSum);
+        return finalSum;
+    }*/
 
     public void tearDown() {
         driver.quit();

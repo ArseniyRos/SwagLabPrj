@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProductPage extends BasePage{
+public class ProductPage extends CommonElements{
 
     public ProductPage(WebDriver driver) {super(driver);}
 
@@ -31,10 +31,36 @@ public class ProductPage extends BasePage{
     @FindBy(css = "[class='shopping_cart_link']")
     WebElement shoppingCartButton;
 
+    //Getters
+    public WebElement getProductTitle() {
+        return productTitle;
+    }
 
+    public WebElement getProductDescription() {
+        return productDescription;
+    }
 
+    public WebElement getProductPrice() {
+        return productPrice;
+    }
 
-    //Methods
+    public WebElement getAddToCartButton() {
+        return addToCartButton;
+    }
+
+    public WebElement getBackButton() {
+        return backButton;
+    }
+
+    public WebElement getCartItemsCounter() {
+        return cartItemsCounter;
+    }
+
+    public WebElement getShoppingCartButton() {
+        return shoppingCartButton;
+    }
+
+//Methods
 
     public void clickBackToProducts() {
         clickElement(backButton);
@@ -44,9 +70,8 @@ public class ProductPage extends BasePage{
         clickElement(addToCartButton);
     }
 
-    public void openCart() {
-        clickElement(shoppingCartButton);
-    }
+
+
 
 
 
