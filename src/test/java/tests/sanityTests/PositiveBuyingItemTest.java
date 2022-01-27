@@ -1,5 +1,6 @@
 package tests.sanityTests;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.*;
@@ -7,6 +8,11 @@ import tests.BaseTest;
 
 public class PositiveBuyingItemTest extends BaseTest {
 
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Verify login with different Credentials")
+    @Epic("E01")
+    @Feature("Feature2: Login")
+    @Story("Story:PRO-45262")
     @Test(testName = "Positive buying 1 item test")
     public void test_01(){
         LoginPage loginPage = new LoginPage(driver);

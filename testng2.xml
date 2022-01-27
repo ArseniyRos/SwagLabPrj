@@ -12,4 +12,9 @@
             <class name="tests.loginTests.SuccessfulLoginTests"/>
         </classes>
     </test>
+    <test name="Positive buying 1 item test">
+        <classes>
+            <class name="tests.sanityTests.PositiveBuyingItemTest"/>
+        </classes>
+    </test>
 </suite>
