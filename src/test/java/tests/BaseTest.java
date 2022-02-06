@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 import pageObjects.Urls;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 
 public abstract class BaseTest {
 
@@ -19,17 +20,22 @@ public abstract class BaseTest {
     @BeforeClass
     public void setupChromeDriver(){
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+       // options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        //options.addArguments("--disable-dev-shm-usage");
     }
 
     @BeforeMethod
     public void setup(){
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+
         driver.get(Urls.BASE_URL);
-        //ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--no-sandbox");
         //options.addArguments("--disable-dev-shm-usage");
-        //WebDriver driver = new ChromeDriver(options);
 
     }
 

@@ -72,21 +72,18 @@ public abstract class BasePage {
     }
 
     public boolean textIsCorrect(WebElement element, String verificationText) {
-        waitUntilElementIsVisible(element);
-        return element.getText().contains(verificationText);
+        if (elementIsDisplayed(element)){
+        return element.getText().contains(verificationText);}
+        else return false;
     }
 
     public boolean urlIsCorrect(String correctUrl) {
-        if (correctUrl.equals(driver.getCurrentUrl())) {
-            return true;
-        } else return false;
+        return  (correctUrl.equals(driver.getCurrentUrl()));
 
     }
 
     public boolean checkRedirectViaDisplayingElementAndHisTitle(WebElement element, String titleForCheck){
-        if (elementIsDisplayed(element) && textIsCorrect(element, titleForCheck) ){
-            return true;
-        } else return false;
+        return  (elementIsDisplayed(element) && textIsCorrect(element, titleForCheck) );
     }
 //возвращает индекс элемента в листе по его имени
     public int findElementInListOfThemOnAPage(List<WebElement> listOfElements , String titleForCheck){
@@ -99,6 +96,10 @@ public abstract class BasePage {
             }
         }
         return -5;
+    }
+
+    public boolean textBoxIsEmpty(WebElement element){
+       return (element.getAttribute("value").isEmpty());
     }
 /* public double priceOfProducts(){
         String priceText;

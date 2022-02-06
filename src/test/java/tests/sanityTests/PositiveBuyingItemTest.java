@@ -9,7 +9,7 @@ import tests.BaseTest;
 public class PositiveBuyingItemTest extends BaseTest {
 
     @Severity(SeverityLevel.BLOCKER)
-    @Description("Verify login with different Credentials")
+    @Description("End to end test with login, choosing and buying products, using sorting and checking prices")
     @Epic("E01")
     @Feature("Feature2: Login")
     @Story("Story:PRO-45262")
@@ -35,6 +35,7 @@ public class PositiveBuyingItemTest extends BaseTest {
         //Assert.assertTrue(cartPage.checkRedirectViaDisplayingElementAndHisTitle(cartPage.getListOfProductTitles().get(2),"Sauce Labs Bolt T-Shirt"));
         Assert.assertTrue(cartPage.checkRedirectViaDisplayingElementAndHisTitle(cartPage.getListOfProductTitles().get(cartPage.findElementInListOfThemOnAPage(cartPage.getListOfProductTitles(), "Sauce Labs Bolt T-Shirt")),"Sauce Labs Bolt T-Shirt"));
         double sumPrice = cartPage.priceOfProducts();
+        // cartPage.test();
         cartPage.clickCheckout();
 
         CheckoutPage checkoutPage = new CheckoutPage(driver);
@@ -53,14 +54,6 @@ public class PositiveBuyingItemTest extends BaseTest {
         Assert.assertTrue(checkoutCompletePage.checkRedirectViaDisplayingElementAndHisTitle(checkoutCompletePage.getPageTitle(), "CHECKOUT: COMPLETE!"));
         Assert.assertTrue(checkoutCompletePage.checkRedirectViaDisplayingElementAndHisTitle(checkoutCompletePage.getThanksForYourOrderTitle(), "THANK YOU FOR YOUR ORDER"));
         checkoutCompletePage.clickBackHome();
-
-
-
-
-
-
-
-
 
     }
 }

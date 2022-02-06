@@ -1,11 +1,17 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CommonElements extends BasePage{
-    public CommonElements(WebDriver driver) {super(driver);}
+
+import java.util.ArrayList;
+
+public class CommonElements extends BasePage {
+    public CommonElements(WebDriver driver) {
+        super(driver);
+    }
 
     //Elements
     @FindBy(css = "[class='header_secondary_container'] [class='title']")
@@ -40,6 +46,8 @@ public class CommonElements extends BasePage{
 
     @FindBy(css = "[id='reset_sidebar_link']")
     WebElement resetSidebarOption;
+
+
 
     //getters
 
@@ -105,13 +113,120 @@ public class CommonElements extends BasePage{
         clickElement(twitterButton);
     }
 
-    public boolean redirectIsCorrect(String url, String correctTitle){
-        if (textIsCorrect(pageTitle, correctTitle ) && urlIsCorrect(url)) {
+    public void clickAbout(){
+        clickElement(sandwichButton);
+        clickElement(aboutSidebarOption);
+    }
+
+    public void clickLogout(){
+        clickElement(sandwichButton);
+        clickElement(logoutSidebarOption);
+    }
+
+    public void clickAllItems(){
+        clickElement(sandwichButton);
+        clickElement(allItemsSidebarOption);
+    }
+
+    public boolean redirectIsCorrect(String url, String correctTitle) {
+        //wont work (fall) if redirect actually didnt happend, will fixed later
+        return  (textIsCorrect(pageTitle, correctTitle) && urlIsCorrect(url));
+    }
+
+    public boolean checkTwitterLink(){
+        clickTwitter();
+        System.out.println(driver.getCurrentUrl());
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1)); //switches to new tab
+        System.out.println(driver.getCurrentUrl());
+        if (urlIsCorrect(Urls.TWITTER_URL)) {
+            driver.close();
+            driver.switchTo().window(tabs.get(0)); //switches to new tab
             return true;
         }
         else return false;
     }
 
+    public boolean checkFacebookLink(){
+        clickFacebook();
+        System.out.println(driver.getCurrentUrl());
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1)); //switches to new tab
+        System.out.println(driver.getCurrentUrl());
+        if (urlIsCorrect(Urls.FACEBOOK_URL)) {
+            driver.close();
+            driver.switchTo().window(tabs.get(0)); //switches to new tab
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean checkLinkedinLink(){
+        clickLinkedin();
+        System.out.println(driver.getCurrentUrl());
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1)); //switches to new tab
+        System.out.println(driver.getCurrentUrl());
+        if (urlIsCorrect(Urls.LINKEDIN_URL) || driver.getCurrentUrl().contains("https://www.linkedin.com/authwal")) {
+            driver.close();
+            driver.switchTo().window(tabs.get(0)); //switches to new tab
+            return true;
+        }
+        else return false;
+    }
+
+    public boolean checkAboutLink(){
+        clickAbout();
+        System.out.println(driver.getCurrentUrl());
+        return (urlIsCorrect(Urls.ABOUT_URL));
+    }
+
+    public boolean checkLogoutLink(){
+        clickLogout();
+        return ((urlIsCorrect(Urls.BASE_URL)) && elementIsDisplayed(driver.findElement(By.id("login-button"))) && textBoxIsEmpty(driver.findElement(By.id("user-name"))) && textBoxIsEmpty(driver.findElement(By.id("password"))));
+    }
+
+    public boolean checkAllItemsLink(){
+        clickAllItems();
+        return ((urlIsCorrect(Urls.INVENTORY_URL)) && (checkRedirectViaDisplayingElementAndHisTitle(pageTitle, "PRODUCTS")));
+    }
 
 
+    /*public boolean checkLinkInNewTab(String nameOfNetwork) {
+        switch (nameOfNetwork) {
+            case "twitter":
+                clickTwitter();
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(1)); //switches to new tab
+                if (driver.getCurrentUrl().equals(Urls.TWITTER_URL)) {
+                    return true;
+                }
+                System.out.println(driver.getCurrentUrl() + "twitter option");
+                driver.switchTo().window(tabs.get(0)); //switches to new tab
+                break;
+            case "facebook":
+                clickFacebook();
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(1)); //switches to new tab
+                if (driver.getCurrentUrl().equals(Urls.FACEBOOK_URL)) {
+                    return true;
+                }
+                System.out.println(driver.getCurrentUrl() + "facebook option");
+                driver.switchTo().window(tabs.get(0)); //switches to new tab
+                break;
+            case "linkedin":
+                clickLinkedin();
+                ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+                driver.switchTo().window(tabs.get(1)); //switches to new tab
+                if (driver.getCurrentUrl().equals(Urls.LINKEDIN_URL)) {
+                    return true;
+                }
+                System.out.println(driver.getCurrentUrl() + "linkedin option");
+                driver.switchTo().window(tabs.get(0)); //switches to new tab
+                break;
+        }
+        driver.switchTo().window(tabs.get(0)); //switches to new tab
+        System.out.println(driver.getCurrentUrl());
+        return false;
+    }*/
 }

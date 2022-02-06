@@ -78,16 +78,18 @@ public class CheckoutOverviewPage extends CommonElements{
     public void clickCancel(){
         clickElement(cancelButton);
     }
-    //checking:
-    // 1 sum of items from CartPage with number on CheckoutPage
-    // 2 sum price+tax+finalPrice
-    // 3 tax !> 10%
+
+
     public boolean pricesComparison(double firstSum){
+        //checking:
+        // 1 sum of items from CartPage with number on CheckoutPage
+        // 2 sum price+tax+finalPrice
+        // 3 tax !> 10%
         double currentItemsSum = Double.parseDouble(getElementText(itemsPrice).replace("Item total: $",""));
         double taxPrice = Double.parseDouble(getElementText(tax).replace("Tax: $",""));
         double sumPlusTax = Double.parseDouble(getElementText(totalPrice).replace("Total: $",""));
 
-        if (firstSum==currentItemsSum && firstSum*1.1>sumPlusTax && firstSum+taxPrice==sumPlusTax){
+        if (firstSum==currentItemsSum && firstSum*1.1>=sumPlusTax && firstSum+taxPrice==sumPlusTax){
             return true;
         }
         else return false;

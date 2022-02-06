@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +18,17 @@ public class LoginPage extends BasePage {
     @FindBy (css = "[data-test='error']")
     WebElement errorMessage;
 
+    public WebElement getUserNameTextField() {
+        return userNameTextField;
+    }
 
+    public WebElement getPasswordTextField() {
+        return passwordTextField;
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
 
     //Methods
     public void fillLogin(String text){

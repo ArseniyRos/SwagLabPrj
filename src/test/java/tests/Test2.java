@@ -1,9 +1,5 @@
 package tests;
 
-import org.testng.Assert;
-import pageObjects.LoginPage;
-import pageObjects.ProductsPage;
-
 public class Test2 {
     public static void main(String[] args) {
 
