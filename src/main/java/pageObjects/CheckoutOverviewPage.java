@@ -87,16 +87,13 @@ public class CheckoutOverviewPage extends CommonElements{
         double taxPrice = Double.parseDouble(getElementText(tax).replace("Tax: $",""));
         double sumPlusTax = Double.parseDouble(getElementText(totalPrice).replace("Total: $",""));
 
-        if (firstSum==currentItemsSum && firstSum*1.1>sumPlusTax && firstSum+taxPrice==sumPlusTax){
-            return true;
-        }
-        else return false;
+        return (firstSum==currentItemsSum && firstSum*1.1>sumPlusTax && firstSum+taxPrice==sumPlusTax);
 
     }
 
 
 
-    public boolean pricesComparison(double firstSum){
+    /*public boolean pricesComparison(double firstSum){
         //checking:
         // 1 sum of items from CartPage with number on CheckoutPage
         // 2 sum price+tax+finalPrice
@@ -110,7 +107,7 @@ public class CheckoutOverviewPage extends CommonElements{
         }
         else return false;
 
-    }
+    }*/
 
 
     /*public void checkSum(){

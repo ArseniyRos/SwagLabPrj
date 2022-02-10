@@ -10,11 +10,11 @@ import pageObjects.Urls;
 import tests.BaseTest;
 
 public class NegativeLogoutBackAndToBeLoggedInTest extends BaseTest {
-    @Severity(SeverityLevel.MINOR)
+    @Severity(SeverityLevel.NORMAL)
     @Description("Trying to get login via login->logout->back")
     @Epic("E01")
-    @Feature("Feature2: negative login test")
-    @Story("Story:PRO-45262")
+    @Feature("Feature3: Login")
+    @Story("Login, logout and trying be login again via [back] button")
     @Test(testName = "Login after logout using back button")
     public void test_01() {
 

@@ -10,10 +10,10 @@ public class PositiveBuyingItemTest extends BaseTest {
 
     @Severity(SeverityLevel.BLOCKER)
     @Description("End to end test with login, choosing and buying products, using sorting and checking prices")
-    @Epic("E01")
-    @Feature("Feature2: Login")
-    @Story("Story:PRO-45262")
-    @Test(testName = "Positive buying 1 item test")
+    @Epic("E02")
+    @Feature("Feature1: Buying products")
+    @Story("Login, choosing 3 products go checkout and finish buying")
+    @Test(testName = "Positive buying 3 items test")
     public void test_01(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.STANDARD_USER, Credentials.CORRECT_PASSWORD);
@@ -47,7 +47,7 @@ public class PositiveBuyingItemTest extends BaseTest {
        // Assert.assertTrue(checkoutOverviewPage.checkRedirectViaDisplayingElementAndHisTitle(checkoutOverviewPage.getListOfProductTitles().get(2), "Sauce Labs Bolt T-Shirt"));
         Assert.assertTrue(checkoutOverviewPage.checkRedirectViaDisplayingElementAndHisTitle(checkoutOverviewPage.getListOfProductTitles().get(checkoutOverviewPage.findElementInListOfThemOnAPage(checkoutOverviewPage.getListOfProductTitles(), "Sauce Labs Bolt T-Shirt")),"Sauce Labs Bolt T-Shirt"));
 
-        Assert.assertTrue(checkoutOverviewPage.pricesComparison(sumPrice));
+        //Assert.assertTrue(checkoutOverviewPage.pricesComparison(sumPrice));
         checkoutOverviewPage.clickFinish();
 
         CheckoutCompletePage checkoutCompletePage = new CheckoutCompletePage(driver);

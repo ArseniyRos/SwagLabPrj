@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public class SocialNetworksLinksTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Verify external social network links")
-    @Epic("E01")
-    @Feature("Feature2: external links check")
-    @Story("Story:PRO-45262")
-    @Test(testName = "Positive buying 1 item test")
+    @Epic("E03")
+    @Feature("Feature4: external links check")
+    @Story("Login and open all external social network links")
+    @Test(testName = "External social networks links test")
     public void test_01() {
 
         LoginPage loginPage = new LoginPage(driver);
@@ -26,12 +26,5 @@ public class SocialNetworksLinksTest extends BaseTest {
         Assert.assertTrue(productsPage.checkTwitterLink());
         Assert.assertTrue(productsPage.checkFacebookLink());
         Assert.assertTrue(productsPage.checkLinkedinLink());
-
-
-
-
-
-
-
     }
 }

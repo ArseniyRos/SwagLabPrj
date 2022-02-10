@@ -9,10 +9,11 @@ import tests.BaseTest;
 
 public class NegativeBuyingNothingTest extends BaseTest {
 
-    @Severity(SeverityLevel.BLOCKER)
+    @Severity(SeverityLevel.MINOR)
     @Description("Trying to go checkout with empty cart")
     @Epic("E02")
-    @Feature("Feature2: Links in left menu")
+    @Feature("Feature1: Buying products")
+    @Story("Login and trying go checkout with empty cart")
     @Test(testName = "Trying to go checkout with empty cart")
     public void test_01(){
         LoginPage loginPage = new LoginPage(driver);

@@ -12,9 +12,9 @@ import tests.BaseTest;
 public class LinksInLeftMenuTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)
     @Description("Verify links in left menu")
-    @Epic("E01")
-    @Feature("Feature2: external links check")
-    @Story("Story:PRO-45262")
+    @Epic("E03")
+    @Feature("Feature2: Left menu")
+    @Story("Login and check all links in left menu")
     @Test(testName = "Verify links in left menu")
     public void test_01() {
 
