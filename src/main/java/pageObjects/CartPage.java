@@ -69,7 +69,7 @@ public class CartPage extends CommonElements {
 
     public void test() {
         Number sum = cartItems.stream().map((item) -> {
-            System.out.println(item.findElement(By.cssSelector("[class='inventory_item_price']")).getText().split("\\$") + "'!!!!!!!!!!!'"); //разобраться в сплите стригов
+            System.out.println(item.findElement(By.cssSelector("[class='inventory_item_price']")).getText().split("\\$") + "'!!!!!!!!!!!'"); //разобраться в сплите стрингов
             String price = item.findElement(By.cssSelector("[class='inventory_item_price']")).getText().split("$")[1];
             String quantity = item.findElement(By.cssSelector("[class='cart_quantity']")).getText();
 

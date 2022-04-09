@@ -14,7 +14,7 @@ public class NegativeLoginTests extends BaseTest {
     @Epic("E01")
     @Feature("Feature3: login")
     @Story("Login with empty blocked username/password")
-    @Test(testName = "Login with locked user")
+    @Test(testName = "Login with locked user", groups = {"Smoke", "Login", "Negative"})
     public void test_01(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.LOCKED_USER, Credentials.CORRECT_PASSWORD);
@@ -22,7 +22,7 @@ public class NegativeLoginTests extends BaseTest {
     }
 
     @Story("Login with empty username")
-    @Test(testName = "Login with empty login")
+    @Test(testName = "Login with empty login", groups = {"Smoke", "Login", "Negative"})
     public void test_02(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.EMPTY_USER, Credentials.CORRECT_PASSWORD);
@@ -30,7 +30,7 @@ public class NegativeLoginTests extends BaseTest {
     }
 
     @Story("Login with empty password")
-    @Test(testName = "Login with empty password")
+    @Test(testName = "Login with empty password", groups = {"Smoke", "Login", "Negative"})
     public void test_03(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.STANDARD_USER, Credentials.EMPTY_PASSWORD);
@@ -38,7 +38,7 @@ public class NegativeLoginTests extends BaseTest {
     }
 
     @Story("Login with empty username/password")
-    @Test(testName = "Login with empty password and login")
+    @Test(testName = "Login with empty password and login", groups = {"Smoke", "Login", "Negative"})
     public void test_04(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.EMPTY_USER, Credentials.EMPTY_PASSWORD);

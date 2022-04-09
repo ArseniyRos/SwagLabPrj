@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.apache.commons.lang.ObjectUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -191,6 +192,14 @@ public class CommonElements extends BasePage {
         return ((urlIsCorrect(Urls.INVENTORY_URL)) && (checkRedirectViaDisplayingElementAndHisTitle(pageTitle, "PRODUCTS")));
     }
 
+    public int getNumberFromCartIcon(){
+        if (getElementText(shoppingCartButton).equals("")){
+            return 0;
+        }
+        else {
+            return Integer.parseInt(getElementText(shoppingCartButton));
+        }
+    }
 
     /*public boolean checkLinkInNewTab(String nameOfNetwork) {
         switch (nameOfNetwork) {

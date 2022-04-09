@@ -45,8 +45,27 @@ public class ProductsPage extends CommonElements{
     WebElement sortHiLo;
 
 
+    //getters
 
+    public List<WebElement> getListOfProductTitle() {
+        return listOfProductTitle;
+    }
 
+    public List<WebElement> getListOfProductPrice() {
+        return listOfProductPrice;
+    }
+
+    public List<WebElement> getListOfAddToCardButton() {
+        return listOfAddToCardButton;
+    }
+
+    public List<WebElement> getListOfRemoveButton() {
+        return listOfRemoveButton;
+    }
+
+    public List<WebElement> getListOfProductDescription() {
+        return listOfProductDescription;
+    }
 
 
     //Methods
@@ -69,6 +88,12 @@ public class ProductsPage extends CommonElements{
             }
             i++;
         }
+        //for (WebElement item : listOfItems) {
+        //      String itemTitle = item.findElement(By.className("inventory_item_name")).getText();
+        //if(itemTitle.equals(productTitle)){
+        // clickElement(item.findElement(By.cssSelector("button)));
+        //}
+        //
     }
     //stilled, but fixed cssSelector (only add, without remove)
     public void addToCart(String titleOfProductForAddingToCart) {

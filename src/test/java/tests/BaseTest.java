@@ -29,7 +29,10 @@ public abstract class BaseTest {
     @BeforeMethod
     public void setup(){
         ChromeOptions options = new ChromeOptions();
+
+        //для работы с дженкинсом раскомментить \/
         //options.addArguments("--headless");
+
         options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();

@@ -16,7 +16,7 @@ public class SuccessfulLoginTests extends BaseTest {
     @Epic("E01")
     @Feature("Feature3: login")
     @Story("Story:PRO-45262")
-    @Test(testName = "Login with standard user")
+    @Test(testName = "Login with standard user", groups = {"Smoke", "Login"})
     public void test_01(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.STANDARD_USER, Credentials.CORRECT_PASSWORD);
@@ -26,7 +26,7 @@ public class SuccessfulLoginTests extends BaseTest {
     }
 
     @Story("Login with correct username/password for problem user")
-    @Test(testName = "Login with problem user")
+    @Test(testName = "Login with problem user", groups = {"Smoke", "Login"})
     public void test_02(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.PROBLEM_USER, Credentials.CORRECT_PASSWORD);
@@ -36,7 +36,7 @@ public class SuccessfulLoginTests extends BaseTest {
     }
 
     @Story("Login with correct username/password for glitched user")
-    @Test(testName = "Login with glitched user")
+    @Test(testName = "Login with glitched user", groups = {"Smoke", "Login"})
     public void test_03(){
         LoginPage loginPage = new LoginPage(driver);
         loginPage.fillForm(Credentials.GLITCH_USER, Credentials.CORRECT_PASSWORD);
